@@ -1,42 +1,65 @@
-# Soroban Token Contract (Freeze Özellikli)
+# 🌐 Soroban Token Contract on Futurenet
 
-Bu proje, Stellar Soroban SDK kullanılarak yazılmış temel bir Token Contract projesidir.  
-**Freeze özelliği** eklenerek daha güvenli ve kontrol edilebilir hale getirilmiştir.
-
----
-
-## 🛠 Özellikler
-
-- **Token Başlatma (initialize)**: Admin belirleme, isim ve sembol atama.
-- **Mint (mint)**: Yeni token üretimi.
-- **Transfer (transfer)**: Token gönderimi.
-- **Balance (balance)**: Adres bakiyesi sorgulama.
-- **Allowance ve Approve**: Harcama yetkilendirme sistemi.
-- **Transfer From (transfer_from)**: Harcama yetkilendirme üzerinden transfer işlemi.
+This project contains a Soroban smart contract deployed on the **Stellar Futurenet** test network.
 
 ---
 
-## 🧩 Ekstra Eklenen Özellik: **Freeze Fonksiyonu**
+## ✅ Contract Deployment  
+The contract has been successfully deployed on Futurenet.
 
-Bu projeye ek olarak geliştirilmiştir:
-
-- **freeze(address)** → Belirli bir adresi dondurur. Dondurulan adres token transfer edemez.
-- **unfreeze(address)** → Dondurulan adresin transfer yapmasını tekrar açar.
-- **is_frozen(address)** → Bir adresin donuk (frozen) durumda olup olmadığını kontrol eder.
-- **transfer()** fonksiyonuna ekstra güvenlik katmanı eklendi:  
-  Eğer gönderen adres **frozen** durumdaysa, transfer işlemi reddedilir.
-
-### ➔ Bu sayede:
-- Sistem daha güvenli olur.
-- Kötü amaçlı transferler engellenebilir.
-- Admin müdahalesi ile kriz anlarında adresler bloklanabilir.
+**Contract ID:**  
+`CBLFZ33ACKB7A25277XKLU6F5R3NVQUQUXUTNRLFL4VVPAGQMSDOPG`
 
 ---
 
-## 🚀 Kullanım
+## 🧪 How to Interact
 
-Projeyi derlemek için:
+You can interact with this contract using:
+
+- ✅ Soroban CLI tools  
+- ✅ RPC requests (Stellar testnet RPC)
+- ✅ Frontend dApp (optional)
+
+Example CLI usage:
 
 ```bash
-cargo build
+soroban contract invoke \
+  --id CBLFZ33ACKB7A25277XKLU6F5R3NVQUQUXUTNRLFL4VVPAGQMSDOPG \
+  --fn balance \
+  --arg "ADDRESS_STRING_HERE"
+```
 
+---
+
+## 📁 Project Structure
+
+```bash
+src/           # Contract source code (Rust)
+Cargo.toml     # Rust dependency configuration
+README.md      # Project description and deployment info
+```
+
+---
+
+## 🛠 Technologies Used
+
+- [Rust](https://www.rust-lang.org/)
+- [Stellar Soroban SDK](https://soroban.stellar.org/)
+- [Soroban CLI](https://docs.stellar.org/smart-contracts/soroban-cli)
+
+---
+
+## 🚀 Deployment Steps (Quick Reference)
+
+```bash
+soroban contract build
+soroban contract deploy \
+  --wasm target/wasm32-unknown-unknown/release/your_contract.wasm \
+  --network futurenet
+```
+
+---
+
+## 📬 Contact
+
+Made by [@mykarli](https://github.com/mykarli) – feel free to reach out for collaboration!
